@@ -10,16 +10,16 @@ input{
 	background-color: black;
 }
 input:focus {outline: none; }
-.datascientist{
-	color 			: white;
-	font-size		: 15px;
-	font-family		: courier;
-	margin-top		: 100px;
-	margin-left		: auto;
-	margin-right	: auto;
-	width			: 800px;
-	height			: 300px;
-#	background-color: #d0e4fe;
+.datascientist {
+  color: white;
+  font-size: 15px;
+  font-family: courier;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  height: 300px;
+  background-color: #d0e4fe; /* Updated line */
 }
 a {
 	color: #0bc;
