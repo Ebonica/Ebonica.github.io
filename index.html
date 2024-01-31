@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Emulator</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      background-color: #000000;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 10px;
+    }
+
+    #terminal {
+      border: 1px solid #00FF00;
+      padding: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+      height: 500px;
+      overflow-y: scroll;
+    }
+
+    #terminal::before {
+      content: "login as: Ebonica\n{Ebonica@datascientist:~}\nDepartment: Computer Science and Engineering\nUniversity: Anna University\nType in Linux commands to know more about me\nls - List Directory\nclear - Clear Terminal\nwhoami - More Info about me\n\n";
+    }
+
+    #input {
+      border: none;
+      background-color: #000000;
+      color: #00FF00;
+      padding: 5px;
+      outline: none;
+    }
+
+    #input::placeholder {
+      color: #00FF00;
+    }
+
+    /* Add your custom cursor styles here */
+    #terminal::before {
+      cursor: text;
+    }
+
+    #input {
+      cursor: auto;
+    }
+
+    /* Add your custom animation styles here */
+    @keyframes blink {
+      0% {
+        border-right-color: transparent;
+      }
+      50% {
+        border-right-color: #00FF00;
+      }
+      100% {
+        border-right-color: transparent;
+      }
+    }
+
+    #terminal::before {
+      animation: blink 1s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal">
+    <input id="input" type="text" placeholder="> " onkeydown="handleInput(event)">
+  </div>
+
+  <script>
+    // Add your custom JavaScript code here
+    const terminal = document.getElementById('terminal');
+    const input = document.getElementById('input');
+
+    function handleInput(event) {
+      if (event.key === 'Enter') {
+        const command = input.value.trim();
+        if (command === 'whoami') {
+          terminal.innerHTML += 'Hi, I\'m Ebonica Saleth\n';
+        } else if (command === 'ls') {
+          terminal.innerHTML += '<a href="https://github.com/Ebonica-git">GitHub</a>\n<a href="https://www.linkedin.com/in/ebonica-saleth-92b268224">LinkedIn</a>\n';
+        } else if (command === 'clear') {
+          terminal.innerHTML = '';
+          input.value = '';
+        } else {
+          terminal.innerHTML += 'Command not found: ' + command + '\n';
+        }
+        input.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
