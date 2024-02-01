@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBONICA SALETH</title>
+    <link href="stylesheets/styles1.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="Emoji.png">
+</head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var outCount = 0;
+
+        $(document).on('keydown', '#input1', function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                var command = $(this).val();
+
+                if (command.trim() !== "") {
+                    outCount++;
+
+                    // Default color
+                    var outputColor = '#FFFFFF';
+
+                    // Handle different commands
+                    switch (command.trim()) {
+                        case "whoami":
+                            outputColor = '#0f0';
+                            $("#terminal").append('<div class="output-command" style="color: ' + outputColor + ';" id="output' + outCount + '">🚀 Aspiring Computer Science Engineering student on the lookout for a vibrant Data Science internship! 💡Passionate about tackling real-world problems, armed with a robust academic foundation. 🌐 Committed to mastering skills in Python, SQL, and ML frameworks. Excited to contribute to impactful projects, learn collaboratively, and make a tangible mark in the world of data science! 🌟</div><br id="out' + outCount + '">');
+                            break;
+                        case "ls":
+                            outputColor = '#0f0';
+                            $("#terminal").append('<div class="output-command" style="color: ' + outputColor + ';" id="output' + outCount + '">\
+                                <a href="https://github.com/Ebonica" class="output-link">GitHub</a>\
+                                <a href="https://www.linkedin.com/in/ebonica-saleth-92b268224" class="output-link">LinkedIn</a>\
+                                </div><br id="out' + outCount + '">');
+                            break;
+                        case "clear":
+                            $("#terminal").empty();
+                            outCount = 0;
+                            break;
+                        case "help":
+                            outputColor = '#0f0';
+                            outCount++;
+                            $("#terminal").append('<div class="output-command" style="color: ' + outputColor + ';" id="output' + outCount + '">Available commands: ls, whoami, clear, help, skills</div><br id="out' + outCount + '">');
+                            break;
+                        case "skills":
+                            outputColor = '#0f0';
+                            outCount++;
+                            $("#terminal").append('<div class="output-command" style="color: ' + outputColor + ';" id="output' + outCount + '">Skills: Python, JavaScript, Data Science, Machine Learning, Artificial Intelligence, HTML, CSS</div><br id="out' + outCount + '">');
+                            break;
+                        default:
+                            outputColor = '#0f0';
+                            outCount++;
+                            $("#terminal").append('<div class="output-command" style="color: ' + outputColor + ';" id="output' + outCount + '">Command not found: ' + command + '</div><br id="out' + outCount + '">');
+                            break;
+                    }
+
+                    // Clear and focus on the input for the next command
+                    $(this).val('');
+                    $("#input1").focus();
+                }
+            }
+        });
+    });
+</script>
+
+
+<body style="background-color: black;">
+ <div class="datascientist" id="terminal" style="color: white;">
+    <div class="terminal-header">Ebonica's Terminal</div>
+    <div class="terminal-content">
+        login as: Ebonica </br></br>
+        Department: Computer Science and Engineering <br>
+        University: Anna University <br><br>
+        Type in Linux commands to know more about me <br><br>
+        ls - List Directory<br>
+        clear - Clear Terminal<br>
+        whoami - More Info about me<br>
+        help - Info about linux commands<br>
+        skills - My skills<br><br>
+        <span id="command1">{<span id="user">Ebonica@datascientist</span>:<span id="s1">~</span>}</span>
+        <input id="input1" type="text" autofocus>
+        <br id="1">
+    </div>
+</div>
+</body>
+
+</html> 
