@@ -1,10 +1,12 @@
-<html>
-	<head>
-		<title> EBONICA SALETH </title>
-		<link href="stylesheets/styles.css" type="text/css" rel="stylesheet">
-                <link rel="icon" href="favicon.ico">
-		
-	</head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBONICA SALETH</title>
+    <link href="stylesheets/styles.css" type="text/css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+</head>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -71,6 +73,16 @@
 					Count = 0;
 					outCount = 0;
 				}
+				else if ("help" == command) {
+                                  outCount++;
+                                  $("#terminal").append('<span class="output-command" id="output' + outCount + '">Available commands: ls, whoami, clear, help</span><br id="out' + outCount + '">');
+                                }else if ("skills" == command) {
+                                   outCount++;
+                                   $("#terminal").append('<span class="output-command" id="output' + outCount + '">Skills: Python, JavaScript, Data Science, Machine Learning</span><br id="out' + outCount + '">');
+                                } else {
+                                    outCount++;
+                                    $("#terminal").append('<span class="output-command" id="output' + outCount + '">Command not found: ' + command + '</span><br id="out' + outCount + '">');
+                                }
 				$("#input" + Count).val('');
 				$("#command" + Count).append( ' ' + command);
 				
